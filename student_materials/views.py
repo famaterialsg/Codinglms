@@ -11,19 +11,16 @@ import mimetypes
 from subject.models import *
 
 
-# for new sharing course
 def subject_list(request):
     # Get the current user
     if request.user.is_authenticated:
         user = request.user
     else:
-        # Default to a specific user, e.g., user with ID 4 (or handle anonymous users accordingly)
-        user = User.objects.get(pk=1)  # Assuming user with ID 4 is the default or superadmin
+        # Default to a specific user, e.g., user with ID 1 (or handle anonymous users accordingly)
+        user = User.objects.get(pk=1)  # Assuming user with ID 1 is the default or superadmin
 
     # Get the training programs assigned to the user
     user_training_programs = user.training_programs.all()
-    #training_program_id = request.GET.get('training_program_id')  # Replace with your actual ID
-    # user_training_programs = User.objects.filter(training_programs__id=training_program_id)
 
     if user_training_programs.exists():
         # Do something with the training programs
@@ -31,15 +28,13 @@ def subject_list(request):
             print(program.program_name)  # or process the training programs as needed
     else:
         print("No training programs assigned to this user.")
-    # Check if a training program has been selected
 
-    user_training_programs = None  # Initialize to None by default
+    # Filter subjects based on the training programs associated with the user
+    # Use the related name 'programs' defined in TrainingProgram model
+    subjects = Subject.objects.filter(programs__in=user_training_programs)
 
- # Assuming you have a ManyToMany relationship from TrainingProgram to Subject
-    subjects = Subject.objects.filter(training_program__in=user_training_programs)
-
-    
     return render(request, 'subject/subject_list.html', {'subjects': subjects})
+
 
 
 def subject_detail(request, subject_id):
