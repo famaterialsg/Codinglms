@@ -7,7 +7,7 @@ from module_group.models import Module
 # User model
 class User(AbstractUser):
     date_joined = models.DateTimeField(auto_now_add=True)
-    training_programs = models.ManyToManyField(TrainingProgram)  # Correct usage here
+    training_programs = models.ManyToManyField(TrainingProgram, blank=True)  # Correct usage here
 
     # Add many-to-many relationship for assigned modules
     modules = models.ManyToManyField(Module, related_name='assigned_users', blank=True)

@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from subject.models import Subject  # Assuming the subject app is named 'subject'
+from course.models import Course  # Assuming the subject app is named 'subject'
 from user.models import User        # Assuming the user app is named 'user'
 
 class DiscussionThread(models.Model):
@@ -9,7 +9,7 @@ class DiscussionThread(models.Model):
     thread_content = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)  # Ensure this field exists
     updated = models.DateTimeField(auto_now=True)
-    subject = models.ForeignKey(Subject,on_delete=models.CASCADE,null=True,blank= True)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE,null=True,blank= True)
     
     def save(self, *args, **kwargs):
         self.updated_at = timezone.now()
