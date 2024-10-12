@@ -17,3 +17,11 @@ pip freeze > requirements.txt
 
 
 find . -path "/migrations/.py" ! -name "_init_.py" -delete
+
+UPDATE subject_lesson
+SET content = REPLACE(content, 'height="500"', 'height="800px"')
+WHERE content LIKE '%<iframe%';
+
+UPDATE subject_lesson
+SET content = REPLACE(content, 'sandbox=""', '')
+WHERE content LIKE '%<iframe%';
