@@ -12,3 +12,5 @@ python3 manage.py createsuperuser
 python3 manage.py collectstatic
 
 python manage.py runserver
+
+find . -path "/migrations/.py" ! -name "_init_.py" -delete
