@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import  Certificate
-from subject_course.models import UserCourseProgress
+from course.models import UserCourseProgress
 
 @receiver(post_save, sender=UserCourseProgress)
 def create_certificate(sender, instance, created, **kwargs):

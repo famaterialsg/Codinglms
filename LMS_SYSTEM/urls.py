@@ -27,7 +27,8 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),  # for file upload
     
     path('admin/', admin.site.urls),
-    path('', home_view, name='home'),  # Define a home URL pattern
+    path('', include('main.urls')),
+
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('', include('main.urls')),  # Include the URLs of the main app
 
@@ -51,6 +52,11 @@ urlpatterns = [
     path('chatapp/', include('chatapp.urls')),
     path('thread/', include('thread.urls')),
     path('collaboration_group/', include('collaboration_group.urls')),
+
+    #group05
+    path('activity/', include('activity.urls', namespace='activity')),  # Ensure this line exists
+    path('performance_analytics/', include('performance_analytics.urls')),
+    # path('certificate/', include('certificate.urls')),
 
     #group06 - Binh_Thang - Coding
     path('coding_exercise/', include('coding_exercise.urls')), 

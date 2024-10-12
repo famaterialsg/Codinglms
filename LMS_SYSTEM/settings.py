@@ -77,7 +77,7 @@ INSTALLED_APPS = [
     'coding_exercise', #Binh_Thang
     # 'assessments',
     'course', 'feedback', 'forum', #group02
-    'activity', #group05
+    'activity', 'performance_analytics', 'certificate', #group05
     'chat', 'chatapp', 'thread', 'collaboration_group', 'collaboration_member', #Group04
 ]
 
