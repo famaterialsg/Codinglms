@@ -9,8 +9,8 @@ class Course(models.Model):
     course_code = models.CharField(max_length=20, unique=True, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
-    creator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='created_courses')
-    instructor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='taught_courses')
+    creator = models.ForeignKey('user.User', on_delete=models.SET_NULL, null=True, blank=True, related_name='created_courses')
+    instructor = models.ForeignKey('user.User', on_delete=models.SET_NULL, null=True, blank=True, related_name='taught_courses')
     published = models.BooleanField(default=True)
     prerequisites = models.ManyToManyField('self', symmetrical=False, blank=True, related_name='is_prerequisite_for')
     tags = models.TextField(blank=True)  # mới thêm
@@ -33,7 +33,7 @@ class Session(models.Model):
         return self.name
 
 class Enrollment(models.Model):
-    student = models.ForeignKey(User, on_delete=models.CASCADE)
+    student = models.ForeignKey('user.User', on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     date_enrolled = models.DateTimeField(auto_now_add=True)
 
@@ -64,7 +64,7 @@ class ReadingMaterial(models.Model):
 
 class Completion(models.Model):
     session = models.ForeignKey(Session, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey('user.User', on_delete=models.CASCADE, null=True, blank=True)
     material = models.ForeignKey(ReadingMaterial, on_delete=models.CASCADE, null=True, blank=True)
     completed = models.BooleanField(default=False)
 
@@ -77,7 +77,7 @@ class Completion(models.Model):
 
 class SessionCompletion(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey('user.User', on_delete=models.CASCADE)
     session = models.ForeignKey(Session, on_delete=models.CASCADE)
     completed = models.BooleanField(default=False)
 
