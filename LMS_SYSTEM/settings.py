@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'debug_toolbar',
     'import_export',
     'ckeditor',
     'ckeditor_uploader',  #Optional: if you want to allow image uploads
@@ -71,9 +72,9 @@ INSTALLED_APPS = [
     'module_group',
     'training_program',
     'subject', 'student_materials', #for FSA subject
-    'quiz', 'std_quiz', #group03
+
     'main', #for hompage
-    'debug_toolbar',
+
     'coding_exercise', #Binh_Thang
     # 'assessments',
 
@@ -87,7 +88,7 @@ INSTALLED_APPS = [
     'chat', 'chatapp', 'thread', 'collaboration_group', 'collaboration_member', 
 
     #group05 
-    'activity', 'ai_insights', 'analytics_report','assignment', 'certificate', 'Course_Completion', 
+    'activity', 'ai_insights', 'analytics_report','assignment', 'certificate', #'Course_Completion', 
     'Performance_Analytics', 'progress_notification', 'student_performance',
 ]
 

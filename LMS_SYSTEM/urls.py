@@ -59,11 +59,11 @@ urlpatterns = [
     path('ai_insights', include('ai_insights.urls')),
     path('analytics_report', include('analytics_report.urls')),
     path('assignment', include('assignment.urls')),
-    path('Course_Completion', include('Course_Completion.urls')),
+    #path('Course_Completion', include('Course_Completion.urls')),
     path('Performance_Analytics', include('Performance_Analytics.urls')),
     path('progress_notification', include('progress_notification.urls')),
     path('student_performance', include('student_performance.urls')),
-    
+
     #group06 - Binh_Thang - Coding
     path('coding_exercise/', include('coding_exercise.urls')), 
     # path('assessments/', include('assessments.urls'))
