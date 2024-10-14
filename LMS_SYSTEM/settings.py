@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',  #Optional: if you want to allow image uploads
     'widget_tweaks',
-    'user',
+    'user', 'role', #group01
     'module_group',
     'training_program',
     'subject', 'student_materials', #for FSA subject
@@ -76,9 +76,19 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'coding_exercise', #Binh_Thang
     # 'assessments',
-    'course', 'feedback', 'forum', #group02
-    'activity', 'performance_analytics', 'certificate', #group05
-    'chat', 'chatapp', 'thread', 'collaboration_group', 'collaboration_member', #Group04
+
+    #group02
+    'course', 'feedback', 'forum', 
+
+    #group03
+    'quiz', 'std_quiz', 
+
+    #group04
+    'chat', 'chatapp', 'thread', 'collaboration_group', 'collaboration_member', 
+
+    #group05 
+    'activity', 'ai_insights', 'analytics_report','assignment', 'certificate', 'Course_Completion', 
+    'Performance_Analytics', 'progress_notification', 'student_performance',
 ]
 
 MIDDLEWARE = [

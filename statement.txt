@@ -15,6 +15,11 @@ python manage.py runserver
 
 pip freeze > requirements.txt
 
+#pythonanywhere
+git pull origin main  # or 'master' if your branch is named master
+python manage.py makemigrations
+
+python manage.py migrate
 
 find . -path "/migrations/.py" ! -name "_init_.py" -delete
 
